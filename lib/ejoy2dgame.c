@@ -194,7 +194,7 @@ ejoy2d_game_start(struct game *G) {
 	lua_getfield(L,LUA_REGISTRYINDEX, EJOY_UPDATE);
 	lua_getfield(L,LUA_REGISTRYINDEX, EJOY_DRAWFRAME);
 	lua_getfield(L,LUA_REGISTRYINDEX, EJOY_MESSAGE);
-  lua_getfield(L,LUA_REGISTRYINDEX, EJOY_RESUME);
+    lua_getfield(L,LUA_REGISTRYINDEX, EJOY_RESUME);
 	lua_getfield(L, LUA_REGISTRYINDEX, EJOY_PAUSE);
 }
 
@@ -258,7 +258,7 @@ call(lua_State *L, int n, int r) {
 
 void
 ejoy2d_call_lua(lua_State *L, int n, int r) {
-  call(L, n, r);
+  	call(L, n, r);
 	lua_settop(L, TOP_FUNCTION);
 }
 
@@ -331,7 +331,7 @@ ejoy2d_game_message(struct game* G,int id_, const char* state, const char* data,
   lua_pushnumber(L, id_);
   lua_pushstring(L, state);
   lua_pushstring(L, data);
-	lua_pushnumber(L, n);
+  lua_pushnumber(L, n);
   call(L, 4, 0);
   lua_settop(L, TOP_FUNCTION);
 }
